@@ -38,6 +38,7 @@ const App = () => {
       console.log("Not enough money");
     }
   };
+// gpt help *_^ handleRemoveFighter
 
   const handleRemoveFighter = (index) => {
     const removedFighter = team[index];
@@ -45,6 +46,7 @@ const App = () => {
     setTeam(newTeam);
     setMoney(money + removedFighter.price);
   };
+
 
   return (
     <div>
@@ -61,7 +63,6 @@ const App = () => {
 
 
       <h2>Money: ${money}</h2>
-
       {/* Display the Team بس انه يعرض الفريق الموجود ويحدثه نضيف له  الحذف  */}
       
       <div>
@@ -74,6 +75,8 @@ const App = () => {
               <li key={index}>
                 <img src={fighter.img} alt={fighter.name} />
                 <p>{fighter.name}</p>
+
+                {/* button to remove  */}
                 <button onClick={() => handleRemoveFighter(index)}>Remove</button>
               </li>
             ))}
@@ -92,11 +95,14 @@ const App = () => {
         <ul>
           {zombieFighters.map((fighter, index) => (
             <li key={index}>
+              {/* show  */}
               <img src={fighter.img} alt={fighter.name} />
               <p>{fighter.name}</p>
               <p>Price: {fighter.price}</p>
               <p>Strength: {fighter.strength}</p>
               <p>Agility: {fighter.agility}</p>
+
+              {/* button to add fighter */}
               <button onClick={() => handleAddFighter(fighter)}>Add</button>
             </li>
           ))}
